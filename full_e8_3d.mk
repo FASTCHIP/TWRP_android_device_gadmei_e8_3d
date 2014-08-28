@@ -19,6 +19,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.secure=0 \
     ro.allow.mock.location=1 \
     ro.debuggable=1 \
-    sys.uses.ext4=1
+    sys.uses.ext4=0
     
 $(call inherit-product, build/target/product/full_base.mk)
