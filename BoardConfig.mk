@@ -54,6 +54,7 @@ TW_CUSTOM_POWER_BUTTON := 116
 TW_NO_REBOOT_BOOTLOADER := true
 TWHAVE_SELINUX := true
 PRODUCT_COPY_FILES += device/gadmei/e8_3d/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+PRODUCT_COPY_FILES += device/gadmei/e8_3d/recovery/fw_env.config:recovery/root/etc/fw_env.config
 
 TARGET_PREBUILT_KERNEL := device/gadmei/e8_3d/kernel
 BOARD_KERNEL_BASE := 0x80008000
