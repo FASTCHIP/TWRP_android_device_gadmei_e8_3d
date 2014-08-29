@@ -1,7 +1,7 @@
 /system		ext4	/dev/block/system
 /data		ext4	/dev/block/data  flags=length=-16384
 /cache		ext4	/dev/block/cache
-/emmc		vfat	/dev/block/media flags=display="Internal storage";storage;settingsstorage;wipeingui
+/media		vfat	/dev/block/media flags=display="Internal storage";storage;settingsstorage;wipeingui
 
 /sdcard		auto	/dev/block/cardblksd1 /dev/block/cardblksd	flags=display="MicroSD";storage;wipeingui;removable
 /sd-ext		auto	/dev/block/cardblksd2	flags=display="SD-EXT";backup=1;wipeingui;removable
