@@ -46,6 +46,9 @@ service recovery /sbin/recovery
 service adbd /sbin/adbd recovery
     disabled
 
+on property:sys.powerctl=*
+    powerctl ${sys.powerctl}
+
 # Always start adbd on userdebug and eng builds
 on property:ro.debuggable=1
     write /sys/class/android_usb/android0/enable 0
