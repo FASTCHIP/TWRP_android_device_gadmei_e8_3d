@@ -45,19 +45,24 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_stora
 TARGET_RECOVERY_INITRC := device/gadmei/e8_3d/recovery/init.rc
 DEVICE_RESOLUTION := 800x1280
 TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
-TW_INTERNAL_STORAGE_PATH := "/emmc"
-TW_INTERNAL_STORAGE_MOUNT_POINT := "emmc"
+RECOVERY_SDCARD_ON_DATA := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_EXTERNAL_STORAGE_PATH := "/sdcard"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 TW_FLASH_FROM_STORAGE := true
 TW_CUSTOM_POWER_BUTTON := 116
 TW_NO_REBOOT_BOOTLOADER := true
 TWHAVE_SELINUX := true
-PRODUCT_COPY_FILES += device/gadmei/e8_3d/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
 PRODUCT_COPY_FILES += device/gadmei/e8_3d/recovery/fw_env.config:recovery/root/etc/fw_env.config
 
-TARGET_PREBUILT_KERNEL := device/gadmei/e8_3d/kernel
+TARGET_RECOVERY_FSTAB += device/gadmei/e8_3d/recovery/UBIFS_datamedia_twrp.fstab
+TARGET_PREBUILT_KERNEL := device/gadmei/e8_3d/kernels/UBIFS_datamedia.uImage
 BOARD_KERNEL_BASE := 0x80008000
 BOARD_KERNEL_CMDLINE := console=ttyS0,115200 rw init=/init loglevel=8
 
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/gadmei/e8_3d/releasetools/amlogic_ota_from_target_files
+ADDITIONAL_BUILD_PROPERTIES += \
+    sys.uses.ext4=0 \
+    sys.uses.datamedia=1 \
+    sys.android.version=KK
